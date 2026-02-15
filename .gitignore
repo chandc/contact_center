@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Secrets
+.env
+
+# Fine-tuned models & checkpoints
+finetuned-MiniLM-L6-v2-customer-support/
+checkpoints/

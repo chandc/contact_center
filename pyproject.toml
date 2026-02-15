@@ -1,0 +1,26 @@
+[project]
+name = "contact-center"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "datasets",
+    "pandas",
+    "numpy",
+    "matplotlib",
+    "seaborn",
+    "wordcloud",
+    "ipywidgets",
+    "ipykernel",
+    "jupyter",
+    "sentence-transformers",
+    "hdbscan",
+    "scikit-learn",
+    "umap-learn",
+    "numba>=0.60",
+    "llvmlite>=0.43",
+    "anthropic>=0.79.0",
+    "python-dotenv>=1.0.0",
+    "accelerate>=1.1.0",
+]
