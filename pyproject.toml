@@ -23,6 +23,7 @@ dependencies = [
     "anthropic>=0.79.0",
     "python-dotenv>=1.0.0",
     "accelerate>=1.1.0",
+    "python-pptx>=1.0.2",
 ]
 
 [dependency-groups]
