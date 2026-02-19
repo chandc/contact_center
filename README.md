@@ -9,8 +9,10 @@ Unsupervised clustering of 26,872 customer support utterances using sentence emb
 ```text
 Contact_Center/
 ├── eda_customer_support.ipynb      # Exploratory data analysis
-├── clustering_analysis.ipynb       # Clustering pipeline & evaluation
-├── finetune_embeddings.ipynb       # Embedding model fine-tuning
+├── clustering_analysis.ipynb       # Baseline clustering pipeline & evaluation
+├── clustering_analysis_v2.ipynb    # Improved clustering (DBCV, precomputed NN, full-dataset eval)
+├── clustering_v2_changelog.ipynb   # Documents all v2 changes with DBCV explainer
+├── finetune_embeddings.ipynb       # Embedding model fine-tuning (uses v2 pipeline)
 ├── finetune_methodology.ipynb      # Fine-tuning methodology documentation
 ├── main.py                         # Minimal entry point
 ├── pyproject.toml                  # Project dependencies
@@ -20,11 +22,20 @@ Contact_Center/
 └── .env                            # API keys (not committed)
 ```
 
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/chandc/contact_center.git
+cd contact_center
+```
+
 ## Environment Setup
 
 This project uses [uv](https://docs.astral.sh/uv/) for dependency management and Python 3.13.
 
-### 1. Install uv
+### 2. Install uv
 
 ```bash
 # macOS / Linux
@@ -34,7 +45,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 brew install uv
 ```
 
-### 2. Create the virtual environment and install dependencies
+### 3. Create the virtual environment and install dependencies
 
 ```bash
 cd Contact_Center
@@ -43,13 +54,13 @@ uv sync
 
 This reads `pyproject.toml` and `uv.lock`, creates a `.venv` directory, and installs all pinned dependencies.
 
-### 3. Register the Jupyter kernel
+### 4. Register the Jupyter kernel
 
 ```bash
 uv run python -m ipykernel install --user --name contact-center --display-name "Contact Center (Python 3.13)"
 ```
 
-### 4. Set up API keys
+### 5. Set up API keys
 
 Create a `.env` file in the project root with your Anthropic API key (required only for LLM-based cluster labeling in `clustering_analysis.ipynb`):
 
@@ -57,7 +68,7 @@ Create a `.env` file in the project root with your Anthropic API key (required o
 ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-### 5. Launch Jupyter
+### 6. Launch Jupyter
 
 Open any notebook in VS Code (select the **Contact Center (Python 3.13)** kernel) or launch Jupyter directly:
 
